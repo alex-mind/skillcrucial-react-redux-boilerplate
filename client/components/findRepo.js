@@ -98,10 +98,10 @@ const RepoReadMe = () => {
   }, [username, repository])
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <Header readMeBool={readMeBool} />
-      <div id="description" className="flex justify-center items-center flex-col w-screen">
-        <ReactMarkdown className="w-3/5" source={readMe} />
+      <div id="description" className="w-3/4 overflow-scroll rounded border-l-2 border-r-2 border-b-2 border-solid border-blue-500">
+        <ReactMarkdown source={readMe} />
       </div>
     </div>
   )
