@@ -92,6 +92,7 @@ server.patch('/api/v1/users/:userId', (req, res) => {
       let counter
       for (counter = 0; counter <= usersParsed.length; counter += 1) {
         if (usersParsed[counter].id === +userId) break
+        if (usersParsed[counter].id > +userId) throw new Error('wrong id')
       }
       if (counter === usersParsed.length) throw new Error('wrong id')
       usersParsed[counter] = { ...usersParsed[counter], ...req.body }
@@ -110,6 +111,7 @@ server.delete('/api/v1/users/:userId', (req, res) => {
       let counter
       for (counter = 0; counter <= usersParsed.length; counter += 1) {
         if (usersParsed[counter].id === +userId) break
+        if (usersParsed[counter].id > +userId) throw new Error('wrong id')
       }
       if (counter === usersParsed.length) throw new Error('wrong id')
       usersParsed = [...usersParsed.slice(0, counter), ...usersParsed.slice(counter + 1)]

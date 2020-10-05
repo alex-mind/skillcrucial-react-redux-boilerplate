@@ -13,6 +13,8 @@ import NotFound from '../components/404'
 
 import Startup from './startup'
 
+import App from '../components/app'
+
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
     !!rest.user && !!rest.user.name && !!rest.token ? (
@@ -74,6 +76,8 @@ const RootComponent = (props) => {
           <Switch>
             <Route exact path="/" component={() => <DummyView />} />
             <Route exact path="/dashboard" component={() => <Home />} />
+            <Route exact path="/find" component={() => <App />} />
+            <Route exact path="/find/*" component={() => <App />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>
