@@ -17,8 +17,19 @@ const RepoInput = (props) => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <input className="shadow-md border rounded text-4xl mx-4 px-2" type="text" id="input-field" value={value} onChange={onChange} />
-      <button className="text-4xl px-2 rounded border-solid border-blue-500 border-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white" id="search-button" type="button" onClick={sendUser}>
+      <input
+        className="shadow-md border rounded text-4xl mx-4 px-2"
+        type="text"
+        id="input-field"
+        value={value}
+        onChange={onChange}
+      />
+      <button
+        className="text-4xl px-2 rounded border-solid border-blue-500 border-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white"
+        id="search-button"
+        type="button"
+        onClick={sendUser}
+      >
         Search
       </button>
     </div>
@@ -29,12 +40,27 @@ const Header = (props) => {
   const { username } = useParams()
   return (
     <div className="flex justify-center items-center flex-col">
-      <div id="repository-name" className="text-lg">{username}</div>
+      <div id="repository-name" className="text-lg">
+        {username}
+      </div>
       <div>
-        <Link id="go-back" to="/find" className="mx-2 px-2 rounded border-solid border-blue-500 border-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white">
+        <Link
+          id="go-back"
+          to="/find"
+          className="mx-2 px-2 rounded border-solid border-blue-500 border-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white"
+        >
           Go to Search
         </Link>
-        {props.readMeBool && <Link id='go-repository-list' to={`/find/${username}/`} className="px-2 rounded border-solid border-blue-500 border-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white"> Back to repositories</Link>}
+        {props.readMeBool && (
+          <Link
+            id="go-repository-list"
+            to={`/find/${username}/`}
+            className="px-2 rounded border-solid border-blue-500 border-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white"
+          >
+            {' '}
+            Back to repositories
+          </Link>
+        )}
       </div>
     </div>
   )
@@ -46,13 +72,13 @@ const List = (props) => {
   const created_date = new Date(props.created_at)
   return (
     <div>
-      <Link to={ `/find/${username}/${repo.name}` } key={repo.id} className="flex" >
+      <Link to={`/find/${username}/${repo.name}`} key={repo.id} className="flex">
         <div className="w-2/5">{repo.name}</div>
         <div className="w-1/5 text-center">{repo.forks_count}</div>
         <div className="w-1/5 text-center">{repo.language}</div>
-        <div className="w-1/5 text-center">{
-          `${created_date.getDate()}/${created_date.getMonth() + 1}/${created_date.getFullYear()}`
-        }</div>
+        <div className="w-1/5 text-center">{`${created_date.getDate()}/${
+          created_date.getMonth() + 1
+        }/${created_date.getFullYear()}`}</div>
       </Link>
     </div>
   )
@@ -65,7 +91,7 @@ const RepoList = () => {
   useEffect(() => {
     axios(`https://api.github.com/users/${username}/repos`)
       .then((res) => setRepos(res.data))
-      .catch(() => setRepos([{name: 'Repositories Not Found' }]))
+      .catch(() => setRepos([{ name: 'Repositories Not Found' }]))
   }, [username])
 
   return (
@@ -78,7 +104,9 @@ const RepoList = () => {
           <div className="w-1/5 text-center">Language</div>
           <div className="w-1/5 text-center">Date created</div>
         </div>
-        {repos.map((repo) => <List key={repo.id} {...repo} />)}
+        {repos.map((repo) => (
+          <List key={repo.id} {...repo} />
+        ))}
       </div>
     </div>
   )
@@ -100,7 +128,10 @@ const RepoReadMe = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <Header readMeBool={readMeBool} />
-      <div id="description" className="w-3/4 overflow-scroll rounded border-l-2 border-r-2 border-b-2 border-solid border-blue-500">
+      <div
+        id="description"
+        className="w-3/4 overflow-scroll rounded border-l-2 border-r-2 border-b-2 border-solid border-blue-500"
+      >
         <ReactMarkdown source={readMe} />
       </div>
     </div>

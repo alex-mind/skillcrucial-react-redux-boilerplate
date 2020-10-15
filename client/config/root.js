@@ -14,6 +14,7 @@ import NotFound from '../components/404'
 import Startup from './startup'
 
 import App from '../components/app'
+import ToDoApp from '../components/toDoApp/toDoApp'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -78,6 +79,8 @@ const RootComponent = (props) => {
             <Route exact path="/dashboard" component={() => <Home />} />
             <Route exact path="/find" component={() => <App />} />
             <Route exact path="/find/*" component={() => <App />} />
+            <Route exact path="/todo" component={() => <ToDoApp />} />
+            <Route exact path="/todo/*" component={() => <ToDoApp />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>
