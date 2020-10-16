@@ -2,7 +2,7 @@
 
 ## Github browser
 
-Using this app you can search for different repositories on GitHub
+Using this app you can search for different users and their repositories on GitHub
 
 Demo: https://some-projects.herokuapp.com/find
 
