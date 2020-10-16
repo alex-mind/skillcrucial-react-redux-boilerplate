@@ -1,3 +1,19 @@
+# Projects developed using this boilerplate
+
+## Github browser
+
+Using this app you can search for different repositories on GitHub
+
+Demo: https://some-projects.herokuapp.com/find
+
+## Simple ToDo app
+
+An app where you can write down your tasks to do and divide them into categories
+
+Demo: https://some-projects.herokuapp.com/todo
+
+----------------------------------------------------------------------------------------
+
 # SkillCrucial React Redux boilerplate
 
 ## Quick start
