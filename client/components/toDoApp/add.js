@@ -11,7 +11,7 @@ const Add = (props) => {
     }
 
     const onClick = async () => {
-        if (props.setTasks) {
+        if (props.setTasks && value) {
             await axios.post(`/api/v1/tasks/${category}`, { title: value })
             await axios.get(`/api/v1/tasks/${category}`)
               .then((allTasks) => allTasks.data)
@@ -19,7 +19,7 @@ const Add = (props) => {
               .then((allTasks) => allTasks.filter((item) => !item._isDeleted))
               .then((allTasks) => props.setTasks(allTasks))
         }
-        if (props.setCategories) {
+        if (props.setCategories && value) {
             await axios.post(`/api/v1/${value}`, {})
             await axios.get(`/api/v1/categories`).then((categories) => props.setCategories(categories.data))
         }

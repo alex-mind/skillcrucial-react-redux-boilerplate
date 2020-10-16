@@ -296,7 +296,7 @@ server.delete('/api/v1/tasks/:category/:id', (req, res) => {
 
 server.get('/api/v1/categories', (req, res) => {
   readdir(`${__dirname}/../tasks`).then((files) => {
-    const filesArr = Object.values(files).map((file) => file.split('.')[0])
+    const filesArr = Object.values(files).map((file) => file.match(/\S{1,}(?=\.json)/))
     res.json(filesArr)
   })
 })
