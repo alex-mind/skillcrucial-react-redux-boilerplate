@@ -11,17 +11,15 @@ const Add = (props) => {
     }
 
     const onClick = async () => {
-        if (props.setTasks && value) {
-            await axios.post(`/api/v1/tasks/${category}`, { title: value })
-            await axios.get(`/api/v1/tasks/${category}`)
-              .then((allTasks) => allTasks.data)
-              /* eslint-disable no-underscore-dangle */
-              .then((allTasks) => allTasks.filter((item) => !item._isDeleted))
-              .then((allTasks) => props.setTasks(allTasks))
+        if (props.setUpdateTasks && value) {
+            await axios
+              .post(`/api/v1/tasks/${category}`, { title: value })
+              .then(() => props.setUpdateTasks(props.updateTasks + 1))
         }
-        if (props.setCategories && value) {
-            await axios.post(`/api/v1/${value}`, {})
-            await axios.get(`/api/v1/categories`).then((categories) => props.setCategories(categories.data))
+        if (props.setUpdateCategories && value) {
+            await axios
+              .post(`/api/v1/${value}`, {})
+              .then(() => props.setUpdateCategories(props.updateCategories + 1))
         }
         setValue('')
     }

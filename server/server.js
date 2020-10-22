@@ -255,7 +255,7 @@ server.patch('/api/v1/tasks/:category/:id', (req, res) => {
       let i = 0
       for (i = 0; i <= updatedTasks.length; i += 1) {
         if (updatedTasks[i].taskId === id) {
-          updatedTasks[i] = { ...updatedTasks[i], title: req.body.title }
+          updatedTasks[i] = { ...updatedTasks[i], title: req.body.title, status: req.body.status }
           break
         }
       }
