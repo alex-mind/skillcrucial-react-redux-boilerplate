@@ -27,7 +27,7 @@ const Category = () => {
       <div className="flex flex-col items-center">
         <Header />
         <h1 className="text-center text-4xl uppercase">{category}</h1>
-        <Filter setUpdateTasks={setUpdateTasks} updateTasks={updateTasks} />
+        <Filter setTasks={setTasks} tasks={updateTasks} />
         <div className="flex justify-center flex-wrap w-3/4">
           {tasks.map((task) => (
             <Task

@@ -10,15 +10,21 @@ const Filter = (props) => {
 
     const onClick = async (e) => {
         const timestamp = e.target.value
-        if (!timestamp) {
+        if (!timestamp || timestamp === 'show all') {
             await axios
               .get(`/api/v1/tasks/${category}`)
-              .then(() => props.setUpdateTasks(props.updateTasks + 1))
+              .then((tasks) => tasks.data)
+              /* eslint-disable no-underscore-dangle */
+              .then((allTasks) => allTasks.filter((item) => !item._isDeleted))
+              .then((tasks) => props.setTasks(tasks))
               .then(() => setUnderlined('show all'))
         } else {
             await axios
               .get(`/api/v1/tasks/${category}/${timestamp}`)
-              .then(() => props.setUpdateTasks(props.updateTasks + 1))
+              .then((tasks) => tasks.data)
+              /* eslint-disable no-underscore-dangle */
+              .then((allTasks) => allTasks.filter((item) => !item._isDeleted))
+              .then((tasks) => props.setTasks(tasks))
               .then(() => setUnderlined(timestamp))
         }
     }

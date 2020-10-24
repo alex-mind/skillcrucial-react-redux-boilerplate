@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { history } from '../redux'
+import { history } from '../../redux'
 import { RepoInput, RepoList, RepoReadMe } from './findRepo'
 
 const App = () => {
