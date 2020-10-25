@@ -328,7 +328,7 @@ server.delete('/api/v1/:category', (req, res) => {
 })
 
 server.get('/api/v1/shop/products', (req, res) => {
-  readFile(`${__dirname}/skillcrcuial-ecommerce-test-data/data.json`, { encoding: 'utf8' })
+  readFile(`${__dirname}/products-data/data.json`, { encoding: 'utf8' })
     .then((products) => {
       res.json(JSON.parse(products))
     })
