@@ -12,6 +12,12 @@ An app where you can write down your tasks to do and divide them into categories
 
 Demo: https://some-projects.herokuapp.com/todo
 
+## Simple shopping app
+
+Just a simple shop using Redux
+
+Demo: https://some-projects.herokuapp.com/shop
+
 ----------------------------------------------------------------------------------------
 
 # SkillCrucial React Redux boilerplate
