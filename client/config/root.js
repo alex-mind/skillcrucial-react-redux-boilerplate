@@ -16,6 +16,7 @@ import Startup from './startup'
 import App from '../components/gitFindApp/app'
 import ToDoApp from '../components/toDoApp/toDoApp'
 import ShopApp from '../components/shopApp/shopApp'
+import GameApp from '../components/gameApp/gameApp'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -84,6 +85,8 @@ const RootComponent = (props) => {
             <Route exact path="/todo/*" component={() => <ToDoApp />} />
             <Route exact path="/shop" component={() => <ShopApp />} />
             <Route exact path="/shop/*" component={() => <ShopApp />} />
+            <Route exact path="/game" component={() => <GameApp />} />
+            <Route exact path="/game/*" component={() => <GameApp />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>
