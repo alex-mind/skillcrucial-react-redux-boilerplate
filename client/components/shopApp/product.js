@@ -12,7 +12,7 @@ const Product = (props) => {
   const dispatch = useDispatch()
 
   return (
-    <div className="card h-auto lg:w-1/5 xl:w-1/5 sm:w-2/5 m-2 flex flex-col items-center justify-end shadow-lg rounded-lg p-5">
+    <div className="card h-auto lg:w-1/5 xl:w-1/5 sm:w-2/5 m-4 flex flex-col items-center justify-end shadow-lg rounded-lg p-5">
       <img className="card__image justify-self-start my-2" src={props.image} alt={props.title} />
       <div className="card__title text-2xl bold text-center">{props.title}</div>
       <div className="card__price">
