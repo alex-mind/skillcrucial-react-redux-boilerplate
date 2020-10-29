@@ -9,7 +9,7 @@ const ProductInBasket = (props) => {
   const dispatch = useDispatch()
 
   return (
-    <div className="flex flex-row justify-around items-center px-1 py-3">
+    <div className="flex flex-row flex-wrap justify-around items-center px-1 py-3">
       <img className="product__image" src={props.image} alt={props.title} />
       <h2 className="product__title text-2xl bold">{props.title}</h2>
       <div className="product__price">

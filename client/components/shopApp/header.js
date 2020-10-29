@@ -22,7 +22,7 @@ const Header = (props) => {
   }
 
   return (
-    <div className="flex justify-around items-center w-screen fixed bg-blue-500 h-12">
+    <div className="flex justify-around items-center flex-wrap w-screen bg-blue-500">
       <Link id="brand-name" className="bold text-3xl uppercase tracking-widest" to="/shop">
         Shop
       </Link>
@@ -62,9 +62,13 @@ const Header = (props) => {
       </div>
       <div className="flex flex-col w-40">
         Products in cart: {productsInBasket}
-        {props.basket ? <Link id="order-count" to="/shop/basket">
-          Go to Cart
-        </Link> : ''}
+        {props.basket ? (
+          <Link id="order-count" to="/shop/basket">
+            Go to Cart
+          </Link>
+        ) : (
+          ''
+        )}
       </div>
     </div>
   )

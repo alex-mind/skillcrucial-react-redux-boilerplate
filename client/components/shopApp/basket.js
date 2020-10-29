@@ -9,7 +9,7 @@ const Basket = () => {
   const currency = useSelector((s) => s.currency)
   const totalAmount = Object.keys(cart).reduce((acc, rec) => {
     const product = products.filter((productToFind) => productToFind.id === rec)[0]
-    return acc + (product.price * cart[rec])
+    return acc + product.price * cart[rec]
   }, 0)
 
   return (
@@ -34,7 +34,12 @@ const Basket = () => {
         )}
         {totalAmount ? (
           <div className="flex w-4/5 justify-end text-4xl my-3">
-            <button type="submit" onClick={() => alert('Unfortunately, you can\'t buy anything here for now :(')}>BUY</button>
+            <button
+              type="submit"
+              onClick={() => alert("Unfortunately, you can't buy anything here for now :(")}
+            >
+              BUY
+            </button>
           </div>
         ) : (
           <div className="text-2xl">Nothing here for now...</div>

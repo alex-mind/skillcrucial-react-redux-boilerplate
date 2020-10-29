@@ -5,6 +5,9 @@ import currency from './currency'
 import cart from './cart'
 import gameSettings from './gameSettings'
 import gameInput from './gameInput'
+import users from './users'
+import channels from './channels'
+import selectedChannel from './selectedChannel'
 
 const createRootReducer = (history) =>
   combineReducers({
@@ -13,7 +16,10 @@ const createRootReducer = (history) =>
     currency,
     cart,
     gameSettings,
-    gameInput
+    gameInput,
+    users,
+    channels,
+    selectedChannel
   })
 
 export default createRootReducer

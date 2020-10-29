@@ -17,6 +17,7 @@ import App from '../components/gitFindApp/app'
 import ToDoApp from '../components/toDoApp/toDoApp'
 import ShopApp from '../components/shopApp/shopApp'
 import GameApp from '../components/gameApp/gameApp'
+import SlackClone from '../components/slackCloneApp/slackClone'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -87,6 +88,8 @@ const RootComponent = (props) => {
             <Route exact path="/shop/*" component={() => <ShopApp />} />
             <Route exact path="/game" component={() => <GameApp />} />
             <Route exact path="/game/*" component={() => <GameApp />} />
+            <Route exact path="/slack" component={() => <SlackClone />} />
+            <Route exact path="/slack/*" component={() => <SlackClone />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>
